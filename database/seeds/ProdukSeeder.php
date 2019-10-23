@@ -16,7 +16,7 @@ class ProdukSeeder extends Seeder
         $faker = Faker::create('id_produk');
 
         // membuat data dummy sebanyak 10 record
-        for($x = 1; $x <= 10; $x++){
+        for($x = 1; $x <= 20; $x++){
 
         	// insert data dummy pegawai dengan faker
         	DB::table('produk')->insert([

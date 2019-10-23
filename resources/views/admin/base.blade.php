@@ -69,12 +69,12 @@
                     <li class="header">MAIN</li>
                     <li class="active open"> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-home"></i><span>Dashboard</span></a>
                         <ul class="ml-menu">
-                            <li class="active"><a href="index.html">Dashboard</a> </li>
+                            <li class="active"><a href="/admin">Dashboard</a> </li>
                             <li><a href="dashboard-rtl.html">Posting Artikel</a></li>
                             <li><a href="/produk">Data Produk</a></li>
                             <li><a href="ec-dashboard.html">Galery Produk</a></li>
                             <li><a href="blog-dashboard.html">Transaksi Penjualan</a></li>
-                            <li><a href="index2.html">Promo</a></li>
+                            <li><a href="/promo"">Promo</a></li>
                             <li><a href="blog-dashboard.html">Data Member</a></li>
                             <li><a href="blog-dashboard.html">Data Admin</a></li>
                         </ul>

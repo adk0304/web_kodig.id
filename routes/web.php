@@ -11,12 +11,22 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/admin', function () {
     return view('admin/dashboard');
 });
 Route::get('/a', function () {
     return view('admin/produk/data_produk');
 });
-Route::get('/produk','ProdukController@index');
-Route::post('/produk/create','ProdukController@create');
 
+//PRODUK
+Route::get('/produk','ProdukController@index');
+Route::put('/produk/store','ProdukController@store');
+
+Route::get('/produk/delete/{id}', 'ProdukController@destroy');
+
+
+//PROMO
+Route::get('/promo','PromoController@index');
+Route::put('/promo/store','PromoController@store');
+
+Route::get('/promo/delete/{id}', 'PromoController@destroy');

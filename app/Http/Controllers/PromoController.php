@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-use App\Produk;
-
-class ProdukController extends Controller
+use App\Promo;
+class PromoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +13,12 @@ class ProdukController extends Controller
      */
     public function index()
     {
-        // mengambil data produk
-    	$produk = produk::paginate(10);
-    	// mengirim data produk ke view produk
-    	return view('admin/produk/produk', ['produk' => $produk]);
+        //
+
+        // mengambil data promo
+    	$promo = promo::paginate(10);
+    	// mengirim data produk ke view promo
+    	return view('admin/promo/promo', ['promo' => $promo]);
     }
 
     /**
@@ -42,14 +42,18 @@ class ProdukController extends Controller
     {
         //
         $this->validate($request,[
-    		'nama_produk' => 'required',
-    		'jenis_produk' => 'required'
+    		'nama_promo' => 'required',
+    		'jenis_promo' => 'required',
+    		'nominal_promo' => 'required',
+    		'expired_date' => 'required'
     	]);
-        Produk::create([
-    		'nama_produk' => $request->nama_produk,
-    		'jenis_produk' => $request->jenis_produk
+        Promo::create([
+    		'nama_promo' => $request->nama_promo,
+    		'jenis_promo' => $request->jenis_promo,
+    		'nominal_promo' => $request->nominal_promo,
+    		'expired_date' => $request->expired_date
     	]);
-    	return redirect('/produk');
+    	return redirect('/promo');
     }
 
     /**
@@ -71,9 +75,7 @@ class ProdukController extends Controller
      */
     public function edit($id)
     {
-        //Belum Fix
-        $produk = Produk::find($id);
-        return view('edit', ['produk' => $produk]);
+        //
     }
 
     /**
@@ -86,15 +88,6 @@ class ProdukController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $this->validate($request,[
-            'nama_produk' => 'required',
-            'jenis_produk' => 'required'
-            ]);
-            $produk = Pegawai::find($id);
-            $produk->nama_produk = $request->nama_produk;
-            $produk->jenis_produk = $request->jenis_produk;
-            $produk->save();
-            return redirect('/produk');
     }
 
     /**
@@ -106,8 +99,9 @@ class ProdukController extends Controller
     public function destroy($id)
     {
         //
-        $produk = produk::find($id);
-        $produk->delete();
-        return redirect('/produk');
+        $promo = Promo::find($id);
+        $promo->delete();
+        return redirect('/promo');
+        /* return redirect()->back(); */
     }
 }
